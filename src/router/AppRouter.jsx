@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { routes } from "./menuRoutes";
+import RouteNotFound from "../components/routeNotFound/routeNotFound";
+import Layout from "../components/layout/Layout.jsx";
 
 const mainRoutes = routes.map(({ id, path, Element }) => (
   <Route key={id} path={path} element={<Element />} />
@@ -8,7 +10,8 @@ const mainRoutes = routes.map(({ id, path, Element }) => (
 const AppRouter = () => {
   return (
     <Routes>
-      <Route>{mainRoutes}</Route>
+      <Route element={<Layout />}>{mainRoutes}</Route>
+      <Route path="*" element={<RouteNotFound></RouteNotFound>}></Route>
     </Routes>
   );
 };

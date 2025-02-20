@@ -1,11 +1,15 @@
-import HomePage from "../pages/HomePage";
+import HomePage from "../pages/homepage/HomePage.jsx";
+import Contact from "../pages/Contact.jsx";
 
 export const routes = [
   {
     id: "homepage",
     path: "/",
-    element: HomePage,
-    exact: true,
-    name: "Home",
+    Element: HomePage,
+  },
+  {
+    id: "contact",
+    path: "/contact",
+    Element: Contact,
   },
 ];
