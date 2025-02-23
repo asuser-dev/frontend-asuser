@@ -1,18 +1,34 @@
 .navbar {
-  width: 100%;
+  width: 60%; /* Restamos 40px (20px de cada lado) */
   display: flex;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 20px; /* Espacio de 20px a la izquierda */
+  right: 20px; /* Espacio de 20px a la derecha */
+  z-index: 1000;
+  background-color: transparent;
+  padding: 5px 0; /* Reducimos el padding vertical */
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  border-radius: 100px;
+  margin: 0 auto; /* Centra el navbar horizontalmente */
+  height: auto; /* Altura automática según el contenido */
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 200, 118, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-content {
-  width: 85%;
+  width: 100%; /* Ocupa el 100% del ancho disponible dentro del navbar */
+  max-width: 1200px; /* Limitamos el ancho máximo */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
-  background-color: black;
-  padding: 10px 20px;
+  border-radius: 15px; /* Leve curvatura en los bordes */
+  padding: 5px 20px; /* Reducimos el padding vertical */
+  background-color: transparent; /* Fondo transparente */
 }
 
 .navbar-icon {
@@ -21,7 +37,15 @@
 
 .navbar-icon a {
   text-decoration: none;
-  color: inherit;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-icon a:hover {
+  color: #f4a261;
+  transform: scale(1.1);
 }
 
 .navbar-buttons {
@@ -30,27 +54,34 @@
 }
 
 .nav-button {
-  padding: 8px 16px;
-  border: none;
-  background-color: #007bff;
-  color: white;
+  padding: 6px 12px; /* Reducimos el padding de los botones */
+  border: 2px solid black;
+  background-color: transparent;
+  color: black;
   cursor: pointer;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
+  border-radius: 20px; /* Bordes redondeados */
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 0.9rem; /* Reducimos el tamaño de la fuente */
 }
 
 .nav-button:hover {
-  background-color: #0056b3;
-}
-
-.iconRobot {
-  width: 50px;
-  height: 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: #f4a261;
+  color: #f4a261;
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    width: calc(100% - 40px); /* Mantenemos el espacio de 20px a cada lado */
+    left: 20px;
+    right: 20px;
+    padding: 5px 0; /* Reducimos el padding vertical */
+  }
+
   .navbar-content {
-    width: 90%;
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    padding: 5px 15px; /* Reducimos el padding vertical */
   }
 
   .navbar-buttons {
@@ -58,6 +89,7 @@
   }
 
   .nav-button {
-    padding: 6px 12px;
+    padding: 4px 8px; /* Reducimos el padding de los botones en móviles */
+    font-size: 0.8rem; /* Reducimos el tamaño de la fuente en móviles */
   }
 }

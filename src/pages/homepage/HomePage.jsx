@@ -4,10 +4,11 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       <section className="section-1">
-        <h1>
+        <h1>asuser</h1>
+        <h2>
           Transformamos tu visión en realidad: Agentes IA y software
           personalizado para impulsar tu negocio al éxito.
-        </h1>
+        </h2>
       </section>
 
       <section className="section-2">
