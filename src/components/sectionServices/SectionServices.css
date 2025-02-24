@@ -91,3 +91,11 @@
 .slick-next:before {
   color: #ff4757;
 }
+
+.slick-dots li button:before {
+  color: white;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+}
