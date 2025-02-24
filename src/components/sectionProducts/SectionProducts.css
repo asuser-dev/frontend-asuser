@@ -1,0 +1,77 @@
+.products-section {
+  width: 98%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center; /* Centrar todo el texto dentro de la sección */
+  color: white;
+}
+
+.products-section h1,
+.products-section h2 {
+  text-align: center;
+  margin: 0; /* Resetear márgenes para evitar inconsistencias */
+  font-family: "Inter", sans-serif; /* Fuente consistente */
+}
+
+.products-section h1 {
+  margin-bottom: 10px; /* Espacio entre h1 y h2 */
+  font-size: 2.5em; /* Tamaño grande para el h1 */
+  color: #1e75cc; /* Color oscuro para el h1 */
+}
+
+.products-section h2 {
+  margin-bottom: 30px; /* Espacio entre el h2 y las tarjetas */
+  font-size: 1.5em; /* Tamaño más pequeño que el h1 */ /* Color gris oscuro para el h2 */
+  font-weight: 400; /* Peso de la fuente más ligero */
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Centrar las tarjetas horizontalmente */
+}
+
+.product-item {
+  display: flex;
+  width: calc(50% - 10px); /* Ajustar ancho para el gap */
+  padding: 15px;
+  box-sizing: border-box;
+  border: 2px solid #007bff; /* Borde azul */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(196, 23, 23, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra base */
+}
+
+.product-item:hover {
+  transform: translateY(-5px); /* Efecto de levantar la tarjeta */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra al hacer hover */
+}
+
+.product-item img {
+  width: 50%; /* Imagen más grande */
+  height: auto;
+  margin-right: 15px;
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+}
+
+.product-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar el contenido verticalmente */
+}
+
+.product-title {
+  margin: 0 0 10px 0; /* Resetear márgenes y espacio inferior */
+  font-size: 1.5em; /* Tamaño más grande para el título */
+  color: #007bff; /* Color azul para el título */
+}
+
+.product-description {
+  margin: 0;
+  font-size: 1em; /* Tamaño de la descripción */ /* Color gris oscuro para la descripción */
+  line-height: 1.5; /* Espaciado entre líneas */
+}
