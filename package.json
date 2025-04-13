@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@mercadopago/sdk-react": "^0.0.24",
     "@react-oauth/google": "^0.12.1",
+=======
+>>>>>>> 4b6bf31 (last changes to push frontend)
     "axios": "^1.8.4",
     "framer-motion": "^12.4.7",
     "react": "^18.2.0",

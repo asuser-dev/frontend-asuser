@@ -12,8 +12,14 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background: linear-gradient(135deg, #00008b, #000000, #ffa500);
+
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-color: #0a0a0a;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 127, 80, 0.1) 0%,
+    transparent 70%
+  );
 }

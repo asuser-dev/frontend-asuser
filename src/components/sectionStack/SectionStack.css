@@ -1,0 +1,41 @@
+.tech-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 127, 80, 1) 0%,
+    transparent 70%
+  );
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  padding: 30px;
+}
+
+.stack-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stack-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stack-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}

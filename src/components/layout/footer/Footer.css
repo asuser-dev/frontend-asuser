@@ -1,13 +1,20 @@
 footer {
   margin-top: 10vmax;
   padding: 2vmax;
+<<<<<<< HEAD
   background-color: rgb(34, 33, 33);
+=======
+>>>>>>> 4b6bf31 (last changes to push frontend)
   color: white;
   display: flex;
   align-items: center;
   position: absolute;
   left: 0;
   right: 0;
+<<<<<<< HEAD
+=======
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+>>>>>>> 4b6bf31 (last changes to push frontend)
 }
 
 .leftFooter {

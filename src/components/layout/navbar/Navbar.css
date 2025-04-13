@@ -76,6 +76,7 @@
   font-size: 0.9rem;
   font-family: "Segoe UI", sans-serif;
   letter-spacing: 0.5px;
+  margin-left: 1vh;
 }
 
 .nav-button:hover,
@@ -86,6 +87,7 @@
   transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
 .logout-button {
   color: #ff6b6b;
   border-color: rgba(255, 107, 107, 0.7);
@@ -159,6 +161,127 @@
 .dropdown-button:hover {
   background-color: rgba(255, 127, 80, 0.2);
   transform: none;
+=======
+.user-menu-wrapper {
+  position: relative;
+  margin-left: 10px;
+}
+
+.user-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.user-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ff7f50;
+  color: #ff7f50;
+  transform: translateY(-2px);
+}
+
+.user-icon-button.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ff7f50;
+  color: #ff7f50;
+}
+
+.user-menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  background-color: rgba(15, 15, 15, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 8px 0;
+  min-width: 160px;
+  z-index: 1001;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.user-menu-item {
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.user-menu-item:hover {
+  background-color: rgba(255, 127, 80, 0.2);
+  color: #ff7f50;
+}
+
+.user-menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-menu-buttons {
+  display: flex;
+  gap: 10px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .user-menu-wrapper {
+    margin-left: 5px;
+  }
+
+  .user-menu-buttons {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+  }
+
+  .user-icon-button {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .user-menu-dropdown {
+    min-width: 140px;
+  }
+
+  .user-menu-item {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+>>>>>>> 4b6bf31 (last changes to push frontend)
 }
 
 @media (max-width: 768px) {

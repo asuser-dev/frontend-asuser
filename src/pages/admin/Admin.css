@@ -1,0 +1,141 @@
+.admin-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(15, 15, 15, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Segoe UI", sans-serif;
+  margin-top: 5vh;
+}
+
+.admin-sidebar {
+  width: 60px;
+  height: 100vh;
+  background-color: rgba(25, 25, 25, 0.95);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: fixed;
+  z-index: 100;
+}
+
+.admin-sidebar.expanded {
+  width: 300px;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 127, 80, 0.1);
+  border-left: 3px solid rgba(255, 127, 80, 0.5);
+}
+
+.menu-item.active {
+  background-color: rgba(255, 127, 80, 0.2);
+  border-left: 3px solid #ff7f50;
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.menu-label {
+  white-space: nowrap;
+}
+
+.admin-content {
+  flex: 1;
+  margin-left: 60px;
+  padding: 30px;
+  transition: margin-left 0.3s ease;
+}
+
+.admin-sidebar.expanded ~ .admin-content {
+  margin-left: 250px;
+}
+
+.content-title {
+  color: #b42c3c;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.content-area {
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 70vh;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 50px;
+  }
+
+  .admin-sidebar.expanded {
+    width: 200px;
+  }
+
+  .admin-content {
+    padding: 20px;
+  }
+
+  .admin-sidebar.expanded ~ .admin-content {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-sidebar {
+    width: 40px;
+  }
+
+  .admin-sidebar.expanded {
+    width: 180px;
+  }
+
+  .admin-sidebar.expanded ~ .admin-content {
+    margin-left: 180px;
+  }
+
+  .menu-icon {
+    margin-right: 10px;
+  }
+
+  .menu-item {
+    padding: 12px 15px;
+  }
+}
