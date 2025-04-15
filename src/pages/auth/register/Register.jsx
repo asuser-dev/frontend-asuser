@@ -114,6 +114,9 @@ const Register = () => {
         password: userData.password,
       });
 
+      console.log(import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC);
+      console.log(response);
+
       localStorage.setItem("authToken", response.data.token);
       navigate("/");
     } catch (err) {
