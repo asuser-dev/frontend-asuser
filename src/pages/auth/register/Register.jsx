@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { authService } from "../../../axiosInstances/axiosInstances.js";
+import {
+  authService,
+  authApi,
+} from "../../../axiosInstances/axiosInstances.js";
 import "./Register.css";
 
 const Register = () => {
@@ -99,7 +102,7 @@ const Register = () => {
       setIsLoading(true);
       setError(null);
 
-      const response = await authService.post("/register/user", {
+      const response = await authApi.post("/register/user", {
         firstName: userData.firstName,
         lastName: userData.lastName,
         identificationNumber: userData.identificationNumber,
@@ -115,9 +118,8 @@ const Register = () => {
       });
 
       console.log(import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC);
-      console.log(response);
 
-      localStorage.setItem("authToken", response.data.token);
+      alert(response.message);
       navigate("/");
     } catch (err) {
       handleRegisterError(err);
@@ -151,7 +153,7 @@ const Register = () => {
         password: companyData.password,
       });
 
-      localStorage.setItem("authToken", response.data.token);
+      alert(response.message);
       navigate("/");
     } catch (err) {
       handleRegisterError(err);

@@ -1,5 +1,16 @@
 import axios from "axios";
 
+/*
+export const authApi = axios.create({
+  baseURL: `http://localhost:${
+    import.meta.env.VITE_BACKEND_PORT || 8000
+  }/v1/auth`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+*/
+
 const authApi = axios.create({
   baseURL: `${import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC}/v1/auth`,
   headers: {
