@@ -117,8 +117,6 @@ const Register = () => {
         password: userData.password,
       });
 
-      console.log(import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC);
-
       alert(response.message);
       navigate("/");
     } catch (err) {
@@ -185,13 +183,13 @@ const Register = () => {
       <div className="register-box">
         {registerType == "user" ? (
           <img
-            src="src/assets/futuristicperson.webp"
+            src="src/public/futuristicperson.webp"
             alt="#"
             className="register-icon"
           />
         ) : (
           <img
-            src="src/assets/futuristicenterprise.webp"
+            src="src/public/futuristicenterprise.webp"
             alt="#"
             className="register-icon"
           />
