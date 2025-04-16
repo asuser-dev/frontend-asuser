@@ -5,6 +5,7 @@ import {
   authApi,
 } from "../../../axiosInstances/axiosInstances.js";
 import "./Register.css";
+import axios from "axios";
 
 const Register = () => {
   const [registerType, setRegisterType] = useState("user");
@@ -102,20 +103,23 @@ const Register = () => {
       setIsLoading(true);
       setError(null);
 
-      const response = await authApi.post("/register/user", {
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        identificationNumber: userData.identificationNumber,
-        birthDate: userData.birthDate,
-        email: userData.email,
-        phone: userData.phone,
-        address: userData.address,
-        province: userData.province,
-        city: userData.city,
-        postalCode: userData.postalCode,
-        nationality: userData.nationality,
-        password: userData.password,
-      });
+      const response = await axios.post(
+        "https://backend-asuser-production.up.railway.app/v1/auth/register/user",
+        {
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          identificationNumber: userData.identificationNumber,
+          birthDate: userData.birthDate,
+          email: userData.email,
+          phone: userData.phone,
+          address: userData.address,
+          province: userData.province,
+          city: userData.city,
+          postalCode: userData.postalCode,
+          nationality: userData.nationality,
+          password: userData.password,
+        }
+      );
 
       console.log(import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC);
 
