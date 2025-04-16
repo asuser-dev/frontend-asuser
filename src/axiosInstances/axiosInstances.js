@@ -11,7 +11,7 @@ export const authApi = axios.create({
 });
 */
 
-const authApi = axios.create({
+export const authApi = axios.create({
   baseURL: `${import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC}/v1/auth`,
   headers: {
     "Content-Type": "application/json",
