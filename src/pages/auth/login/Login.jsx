@@ -70,11 +70,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <img
-          src="src/public/assets/login.webp"
-          alt="#"
-          className="login-icon"
-        />
+        <img src="src/public/login.webp" alt="#" className="login-icon" />
 
         {error && <div className="error-message">{error}</div>}
 
