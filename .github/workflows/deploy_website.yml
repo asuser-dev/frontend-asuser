@@ -89,7 +89,7 @@ jobs:
             ls
             pwd
             cd ../temp/app
-            npm ci
+            npm install
             npm run build
             cd dist
             ls ../../../
