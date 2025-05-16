@@ -14,6 +14,7 @@ on:
 
 jobs:
   terraform:
+    environment: Production
     name: push web on s3
     runs-on: ubuntu-latest
     steps:
