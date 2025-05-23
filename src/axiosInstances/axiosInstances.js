@@ -12,7 +12,9 @@ export const authApi = axios.create({
 */
 
 export const authApi = axios.create({
-  baseURL: `${import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC}/v1/auth`,
+  baseURL:
+    `${import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC}/v1` ||
+    "backend-asuser-production.up.railway.app/v1",
   headers: {
     "Content-Type": "application/json",
   },
