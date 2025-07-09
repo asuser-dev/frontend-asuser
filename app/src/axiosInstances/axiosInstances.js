@@ -1,20 +1,7 @@
 import axios from "axios";
 
-/*
 export const authApi = axios.create({
-  baseURL: `http://localhost:${
-    import.meta.env.VITE_BACKEND_PORT || 8000
-  }/v1/auth`,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-*/
-
-export const authApi = axios.create({
-  baseURL:
-    `${import.meta.env.VITE_BACKEND_RAILWAY_PUBLIC}/v1` ||
-    "backend-asuser-production.up.railway.app/v1",
+  baseURL: "https://backend-asuser-production.up.railway.app/v1/auth",
   headers: {
     "Content-Type": "application/json",
   },
