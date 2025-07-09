@@ -3,15 +3,15 @@ import "./SectionStack.css";
 const techs = [
   {
     name: "JavaScript",
-    logo: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
+    logo: "https://img.icons8.com/?size=100&id=PXTY4q2Sq2lG&format=png&color=000000",
   },
   {
     name: "Python",
     logo: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
   },
   {
-    name: "Java",
-    logo: "https://cdn.worldvectorlogo.com/logos/java-4.svg",
+    name: "Golang",
+    logo: "https://cdn.worldvectorlogo.com/logos/golang-gopher.svg",
   },
   { name: "React", logo: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
   {
@@ -28,7 +28,7 @@ const techs = [
     logo: "https://cdn.worldvectorlogo.com/logos/kubernets.svg",
   },
   {
-    name: "GitHub Actions",
+    name: "GitHub",
     logo: "https://cdn.worldvectorlogo.com/logos/github-icon.svg",
   },
   {

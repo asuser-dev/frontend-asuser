@@ -5,39 +5,29 @@ import "./SectionServices.css";
 
 const services = [
   {
-    title: "Desarrollo de agentes IA",
+    title: "Desarrollo de Aplicaciones Web",
     description:
-      "Creamos soluciones de inteligencia artificial personalizadas, desde chatbots hasta sistemas de recomendación avanzados, para optimizar tus procesos y mejorar la experiencia del usuario.",
+      "Creamos plataformas web rápidas, intuitivas y adaptables a cualquier dispositivo. Diseño y desarrollo unificados para garantizar una experiencia fluida, alto rendimiento y máxima accesibilidad para todos los usuarios.",
   },
   {
-    title: "Desarrollo de apps webs",
+    title: "Desarrollo de Software a Medida",
     description:
-      "Diseñamos y desarrollamos aplicaciones web modernas, escalables y seguras, utilizando las últimas tecnologías para garantizar un rendimiento óptimo.",
+      "Soluciones empresariales personalizadas que simplifican procesos complejos. Combinamos funcionalidad avanzada con interfaces intuitivas, asegurando que cada herramienta sea fácil de adoptar por equipos y clientes.",
   },
   {
-    title: "Desarrollo de software",
+    title: "Diseño UX/UI Centrado en Resultados",
     description:
-      "Ofrecemos soluciones de software a medida para empresas, desde aplicaciones de escritorio hasta sistemas empresariales complejos, adaptados a tus necesidades.",
+      "No solo diseñamos interfaces atractivas, sino que optimizamos cada interacción basándonos en datos reales de usuarios. Investigación continua, pruebas de usabilidad y adaptación progresiva para maximizar engagement.",
   },
   {
-    title: "Diseño UX",
+    title: "Infraestructura Cloud y Escalabilidad",
     description:
-      "Nos enfocamos en la experiencia del usuario, creando interfaces intuitivas y atractivas que mejoran la usabilidad y la satisfacción del cliente.",
+      "Implementamos entornos flexibles y seguros que crecen con tu negocio. Garantizamos alta disponibilidad, velocidad consistente y actualizaciones sin interrupciones para experiencias siempre fluidas.",
   },
   {
-    title: "Servicios Cloud",
+    title: "Estrategias de Marketing Digital",
     description:
-      "Implementamos infraestructuras en la nube para mejorar la escalabilidad, garantizar la alta disponibilidad y reducir costos operativos.",
-  },
-  {
-    title: "Servicios DevOps",
-    description:
-      "Adoptamos prácticas DevOps para optimizar la entrega de software, automatizar procesos y fomentar la colaboración entre desarrollo y operaciones.",
-  },
-  {
-    title: "Servicio de marketing para webs",
-    description:
-      "Potenciamos tu presencia en línea con estrategias de marketing digital efectivas, incluyendo SEO, publicidad en redes sociales y análisis de datos.",
+      "Enfoque integral: desde la arquitectura técnica de tu plataforma hasta el recorrido del usuario. Optimizamos conversiones mediante análisis de comportamiento y personalización inteligente.",
   },
 ];
 

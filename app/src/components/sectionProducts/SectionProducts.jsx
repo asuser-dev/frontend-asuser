@@ -12,26 +12,37 @@ const SectionProducts = () => {
       id: 2,
       title: "Agent Sales",
       description:
-        "Agente que busca en la zona de Google Maps que elijas con el tipo de establecimiento que desees y ofrece tu producto. Ideal para aumentar tus ventas y presencia en el mercado.",
+        "Sistema inteligente que identifica negocios potenciales en zonas específicas mediante Google Maps y realiza prospección comercial automatizada, ampliando tu base de clientes sin esfuerzo.",
     },
     {
       id: 3,
-      title: "Agent Turnero",
+      title: "CRM para Agencia de Viajes",
       description:
-        "Agente que maneja los turnos de tu comercio. Optimiza la gestión de turnos y mejora la experiencia de tus clientes con este sistema inteligente.",
+        "Solución personalizada que centraliza la gestión de clientes, reservas y proveedores, aumentando la eficiencia operativa y mejorando la experiencia del cliente final.",
     },
     {
       id: 4,
-      title: "E-learning",
+      title: "Campus Virtual E-learning",
       description:
-        "Plataforma e-learning para tu academia. Ofrece cursos en línea, gestiona estudiantes y recursos educativos de manera eficiente y escalable.",
+        "Plataforma educativa completa con aulas virtuales, seguimiento de progreso y herramientas interactivas, diseñada específicamente para academias que buscan digitalizar su enseñanza.",
+    },
+    {
+      id: 5,
+      title: "Transformación Digital Integral",
+      description:
+        "Paquete completo que incluye diseño web profesional, software de gestión a medida y estrategia de redes sociales, llevando a una empresa tradicional al éxito digital con presencia nacional.",
+    },
+    {
+      id: 6,
+      title: "Campañas Google Ads Efectivas",
+      description:
+        "Gestión profesional de publicidad digital con seguimiento en tiempo real y optimización constante, maximizando el retorno de inversión para nuestros clientes.",
     },
   ];
 
   return (
     <section className="products-section">
-      <h1>Productos</h1>
-      <h2>Preparados para entregar en una semana</h2>
+      <h1>Así estamos marcando el 2025: creaciones y soluciones</h1>
       <div className="products-container">
         {products.map((product) => (
           <article key={product.id} className="product-item">
