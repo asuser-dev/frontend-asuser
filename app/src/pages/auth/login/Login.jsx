@@ -46,21 +46,33 @@ const Login = () => {
 
       navigate("/");
     } catch (err) {
+      let errorMessage = "Error al iniciar sesión";
+
       if (err.response) {
+        // Errores de la API (Axios)
         switch (err.response.status) {
+          case 400:
+            errorMessage = "Datos inválidos";
+            break;
           case 401:
-            setError("Credenciales incorrectas");
+            errorMessage = "Email o contraseña incorrectos";
             break;
           case 404:
-            setError("Usuario no encontrado");
+            errorMessage = "Usuario no encontrado";
+            break;
+          case 500:
+            errorMessage = "Error del servidor. Intenta más tarde";
             break;
           default:
-            setError("Error al iniciar sesión");
+            errorMessage = "Error desconocido";
         }
+      } else if (err.message) {
+        errorMessage = err.message;
       } else {
-        setError("Error de conexión con el servidor");
+        errorMessage = "No se pudo conectar al servidor";
       }
-      console.error("Login error:", err);
+
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
