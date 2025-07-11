@@ -13,21 +13,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleGoogleLogin = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      console.log("Iniciando sesión con Google...");
-      navigate("/");
-    } catch (err) {
-      setError("Error al iniciar sesión con Google");
-      console.error("Google login error:", err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const handleEmailLogin = async () => {
     if (!email || !password) {
       setError("Por favor ingresa email y contraseña");
@@ -85,14 +70,6 @@ const Login = () => {
         <img src="src/public/login.webp" alt="#" className="login-icon" />
 
         {error && <div className="error-message">{error}</div>}
-
-        <button
-          className="google-button"
-          onClick={handleGoogleLogin}
-          disabled={isLoading}
-        >
-          {isLoading ? "Cargando..." : "Ingresar con Google"}
-        </button>
 
         <button
           className="email-button"
