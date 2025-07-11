@@ -71,9 +71,6 @@ const Navbar = () => {
                     <Link to="/login">
                       <button className="nav-button">Iniciar Sesión</button>
                     </Link>
-                    <Link to="/register">
-                      <button className="nav-button">Registrarse</button>
-                    </Link>
                   </>
                 )}
               </div>

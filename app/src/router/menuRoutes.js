@@ -25,12 +25,6 @@ export const routes = [
     public: true,
   },
   {
-    id: "register",
-    path: "/register",
-    Element: Register,
-    public: true,
-  },
-  {
     id: "admin",
     path: "/admin",
     Element: Admin,
