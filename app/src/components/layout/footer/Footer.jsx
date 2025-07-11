@@ -1,15 +1,30 @@
 import "./Footer.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate("/contact");
+  };
+
+  const handleConsumerDefenseClick = () => {
+    window.open(
+      "https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
     <footer id="footer">
       <div className="leftFooter">
-        <h4>Obtene las últimas novedades</h4>
+        <h4>Obtené las últimas novedades</h4>
         <div className="subscribe-container">
-          <input type="email" placeholder="Ingresa tu email*" />
+          <input type="email" placeholder="Ingresá tu email*" />
           <button>Suscribite</button>
         </div>
-        <p>Mantente informado sobre las últimas novedades de tecnología.</p>
+        <p>Mantenete informado sobre las últimas novedades de tecnología.</p>
       </div>
       <div className="midFooter">
         <h1>ASUSER</h1>
@@ -19,10 +34,15 @@ const Footer = () => {
       <div className="rightFooter">
         <h4>Enlaces</h4>
         <ul>
-          <li>Nosotros</li>
-          <li>Contactanos</li>
-          <li>Referencias</li>
-          <li>Defensa al consumidor</li>
+          <li onClick={handleContactClick} style={{ cursor: "pointer" }}>
+            Contactanos
+          </li>
+          <li
+            onClick={handleConsumerDefenseClick}
+            style={{ cursor: "pointer" }}
+          >
+            Defensa al consumidor
+          </li>
         </ul>
       </div>
     </footer>

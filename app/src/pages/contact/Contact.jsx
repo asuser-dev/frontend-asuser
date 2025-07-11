@@ -1,71 +1,95 @@
 import { useState } from "react";
+import axios from "axios";
 import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    complete_name: "",
     email: "",
     phone: "",
     subject: "",
-    message: "",
+    content: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (
+      !formData.complete_name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.content
+    ) {
+      setError("Por favor complete todos los campos obligatorios");
+      return;
+    }
+
+    setError(null);
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage(
-        "¡Gracias por contactarnos! Responderemos a la brevedad."
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/v1/contact/createContactRequest",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 1500);
+
+      if (response.status === 201) {
+        setSubmitMessage(
+          "¡Gracias por contactarnos! Responderemos a la brevedad."
+        );
+        setFormData({
+          complete_name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          content: "",
+        });
+      }
+    } catch (err) {
+      console.error("Error al enviar el formulario:", err);
+      const errorMessage =
+        err.response?.data?.errorMessage ||
+        "Hubo un error al enviar el mensaje. Por favor intente nuevamente más tarde.";
+      setSubmitMessage(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="contact-container">
       <div className="contact-box">
-        <h2 className="contact-title">Contáctenos</h2>
+        <h2 className="contact-title">Contactános</h2>
         <p className="contact-subtitle">Estamos aquí para ayudarte</p>
 
         <div className="contact-content">
           <div className="contact-info">
             <div className="info-section">
               <h3 className="info-title">
-                <i className="fas fa-map-marker-alt"></i> Dirección
+                <i className="fas fa-map-marker-alt"></i> Ubicación
               </h3>
-              <p>Av. Rio Ceballos 742, Córdoba</p>
-            </div>
-
-            <div className="info-section">
-              <h3 className="info-title">
-                <i className="fas fa-phone"></i> Teléfonos
-              </h3>
-              <p>+54 11 1234-5678</p>
-              <p>+54 11 9876-5432</p>
+              <p>Rio Ceballos, Córdoba</p>
             </div>
 
             <div className="info-section">
               <h3 className="info-title">
                 <i className="fas fa-envelope"></i> Email
               </h3>
-              <p>asuser@asuser.com</p>
-              <p>asuser@asuser.com</p>
+              <p>asusercompany@gmail.com</p>
             </div>
 
             <div className="info-section">
@@ -85,23 +109,23 @@ const Contact = () => {
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
+                {error && <div className="error-message">{error}</div>}
+
                 <div className="form-row">
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Nombre completo"
-                    value={formData.name}
+                    name="complete_name"
+                    placeholder="Nombre completo *"
+                    value={formData.complete_name}
                     onChange={handleChange}
-                    required
                     className="form-input"
                   />
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Email *"
                     value={formData.email}
                     onChange={handleChange}
-                    required
                     className="form-input"
                   />
                 </div>
@@ -110,7 +134,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Teléfono"
+                    placeholder="Teléfono (opcional)"
                     value={formData.phone}
                     onChange={handleChange}
                     className="form-input"
@@ -118,20 +142,18 @@ const Contact = () => {
                   <input
                     type="text"
                     name="subject"
-                    placeholder="Asunto"
+                    placeholder="Asunto *"
                     value={formData.subject}
                     onChange={handleChange}
-                    required
                     className="form-input"
                   />
                 </div>
 
                 <textarea
-                  name="message"
-                  placeholder="Tu mensaje..."
-                  value={formData.message}
+                  name="content"
+                  placeholder="Tu mensaje... *"
+                  value={formData.content}
                   onChange={handleChange}
-                  required
                   className="form-textarea"
                   rows="5"
                 ></textarea>
