@@ -38,7 +38,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/v1/contact/createContactRequest",
+        "https://backend-asuser-production.up.railway.app/v1/contact/createContactRequest",
         formData,
         {
           headers: {
