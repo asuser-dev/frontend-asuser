@@ -1,7 +1,6 @@
 import HomePage from "../pages/homepage/HomePage.jsx";
 import Contact from "../pages/contact/Contact.jsx";
 import Login from "../pages/auth/login/Login.jsx";
-import Register from "../pages/auth/register/Register.jsx";
 import Admin from "../pages/admin/Admin.jsx";
 import Services from "../pages/services/Services.jsx";
 
