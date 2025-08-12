@@ -1,27 +1,50 @@
 import axios from "axios";
 
-export const authApi = axios.create({
+export const generalApi = axios.create({
   baseURL:
     window.location.hostname === "localhost"
-      ? "http://localhost:8000/v1/auth"
-      : "https://backend-asuser-production.up.railway.app/v1/auth",
+      ? "http://localhost:8000/v1/"
+      : "https://backend-asuser-production.up.railway.app/v1",
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true,
 });
 
-authApi.interceptors.response.use(
+generalApi.interceptors.response.use(
   (response) => response.data,
-  (error) => {
+  async (error) => {
     if (error.response) {
-      console.error(
-        "Error de respuesta:",
-        error.response.status,
-        error.response.data
-      );
+      const { status, data } = error.response;
+
+      console.error("Error de respuesta:", status, data);
+
+      if (
+        status === 403 &&
+        data?.details &&
+        data.details.toLowerCase().includes("token expired")
+      ) {
+        try {
+          if (!error.config._retry) {
+            error.config._retry = true;
+
+            const { token } = await generalApi.post("session/refresh-token");
+            localStorage.setItem("token", token);
+            console.log("Nuevo token guardado en localStorage");
+
+            error.config.headers["Authorization"] = `Bearer ${token}`;
+
+            return generalApi(error.config);
+          }
+        } catch (refreshError) {
+          console.error("Error al refrescar token", refreshError);
+          return Promise.reject(refreshError);
+        }
+      }
+
       return Promise.reject({
-        status: error.response.status,
-        message: error.response.data.message || "Error de autenticación",
+        status,
+        message: data.message || data.details || "Error de autenticación",
       });
     } else if (error.request) {
       console.error("Error de conexión:", error.request);
@@ -38,10 +61,11 @@ authApi.interceptors.response.use(
     }
   }
 );
+
 export const authService = {
   async login(credentials) {
     try {
-      return await authApi.post("/login", credentials);
+      return await generalApi.post("/auth/login", credentials);
     } catch (error) {
       throw error;
     }
@@ -49,27 +73,7 @@ export const authService = {
 
   async register(userData) {
     try {
-      return await authApi.post("/register", userData);
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  async verifyToken(token) {
-    try {
-      return await authApi.get("/verify", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  async updateProfile(userId, updates, token) {
-    try {
-      return await authApi.put(`/users/${userId}`, updates, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      return await generalApi.post("/auth/register", userData);
     } catch (error) {
       throw error;
     }
