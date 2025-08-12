@@ -1,16 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import "./Services.css";
 
 const UserServices = () => {
-  const [activeService, setActiveService] = useState(null);
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+  const [userData, setUserData] = useState({
+    role: "",
+    name: "",
+    services: [],
+  });
+  const [ServiceComponent, setServiceComponent] = useState(null);
 
-  const handleServiceClick = (service) => {
-    setActiveService(service);
-    console.log(`Servicio seleccionado: ${service}`);
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+    if (storedData) {
+      setUserData(storedData);
+    }
+  }, []);
+
+  const handleServiceClick = async (service) => {
+    try {
+      const module = await import(
+        `../../components/servicesComponents/${service.component}.jsx`
+      );
+      setServiceComponent(() => module.default);
+    } catch (error) {
+      console.error(
+        `No se pudo cargar el componente: ${service.component}`,
+        error
+      );
+      setServiceComponent(() => () => <p>Error al cargar el componente.</p>);
+    }
   };
-
-  const serviceOptions = [{ id: "service1", label: "Servicio 1", icon: "🔧" }];
 
   return (
     <div className="admin-container">
@@ -24,17 +44,16 @@ const UserServices = () => {
         </div>
 
         <ul className="sidebar-menu">
-          {serviceOptions.map((service) => (
+          {userData.services.map((service) => (
             <li
-              key={service.id}
-              className={`menu-item ${
-                activeService === service.id ? "active" : ""
-              }`}
-              onClick={() => handleServiceClick(service.id)}
+              key={`service-${service.id}`}
+              className="menu-item"
+              onClick={() => handleServiceClick(service)}
+              title={service.description}
             >
-              <span className="menu-icon">{service.icon}</span>
+              <span className="menu-icon">🔧</span>
               {isMenuExpanded && (
-                <span className="menu-label">{service.label}</span>
+                <span className="menu-label">{service.name}</span>
               )}
             </li>
           ))}
@@ -42,31 +61,20 @@ const UserServices = () => {
       </div>
 
       <div className="admin-content">
-        <h2 className="content-title">
-          {activeService
-            ? `${
-                serviceOptions.find((s) => s.id === activeService)?.label || ""
-              }`
-            : "Seleccione un servicio del menú"}
-        </h2>
-        <div className="content-area">
-          {activeService === "service1" && (
-            <div className="service-content">
-              <h3>Detalles del Servicio 1</h3>
-              <p>Contenido del servicio 1 aparecerá aquí.</p>
-              <div className="service-features">
-                <div className="feature-card">
-                  <h4>Característica 1</h4>
-                  <p>Descripción de la característica 1</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Característica 2</h4>
-                  <p>Descripción de la característica 2</p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+        {!ServiceComponent ? (
+          <>
+            <h2 className="content-title">Seleccione un servicio del menú</h2>
+            {userData.services.length === 0 && (
+              <p className="no-services-message">
+                No tienes servicios asignados
+              </p>
+            )}
+          </>
+        ) : (
+          <Suspense fallback={<p>Cargando...</p>}>
+            <ServiceComponent />
+          </Suspense>
+        )}
       </div>
     </div>
   );

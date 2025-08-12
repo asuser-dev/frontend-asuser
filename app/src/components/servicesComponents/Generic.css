@@ -1,15 +1,13 @@
-.register-container {
+.form-main-container {
   width: 100%;
-  min-height: 90vh;
-  margin-top: 10vh;
   display: flex;
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.register-box {
-  width: 100%;
+.form-box {
+  width: auto;
   max-width: 600px;
   padding: 30px;
   border-radius: 25px;
@@ -20,17 +18,22 @@
   transition: all 0.5s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadeIn 0.5s ease-out;
+  display: inline-block;
 }
 
-.register-box:hover {
+.form-box h2 {
+  margin-bottom: 10px;
+}
+
+.form-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(255, 127, 80, 0.2);
   border-color: rgba(255, 127, 80, 0.3);
 }
 
-.register-icon {
-  width: 20vh;
-  height: 20vh;
+.form-icon {
+  width: 15vh;
+  height: 15vh;
   margin: 0 auto 20px;
   border-radius: 50%;
   object-fit: cover;
@@ -38,35 +41,29 @@
   transition: all 0.3s ease;
 }
 
-.register-icon:hover {
+.form-icon:hover {
   transform: scale(1.05);
   border-color: rgba(255, 127, 80, 0.5);
 }
 
-.register-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: start;
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 300px;
 }
 
-.register-form,
-.register-buttons {
-  grid-column: span 2;
-}
-
-.register-type-buttons,
 .form-row {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  width: 100%;
 }
 
-.google-button,
-.email-button,
-.register-button,
-.type-button,
-.form-input {
-  width: 100%;
+.form-input,
+.form-select,
+.form-textarea {
+  flex: 1;
+  min-width: 0;
   padding: 12px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 25px;
@@ -75,34 +72,49 @@
   transition: all 0.3s ease;
   background-color: rgba(15, 15, 15, 0.5);
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 15px;
 }
 
-.google-button,
-.email-button,
-.type-button {
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #ff7f50;
+}
+
+.form-button,
+.form-type-button {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: transparent;
 }
 
-.google-button:hover,
-.email-button:hover,
-.register-button:hover,
-.type-button:hover {
+.form-button {
+  background-color: rgba(255, 127, 80, 0.1);
+}
+
+.form-button:hover,
+.form-type-button:hover {
   border-color: #ff7f50;
   color: #ff7f50;
   transform: translateY(-2px);
 }
 
-.type-button.active,
-.register-button:hover {
+.form-type-button.active {
   background-color: rgba(255, 127, 80, 0.2);
 }
 
-.error-message {
+.form-error {
   color: #ff5252;
   background-color: rgba(255, 82, 82, 0.1);
   padding: 12px;
@@ -111,22 +123,23 @@
   font-size: 0.9em;
   border-left: 3px solid #ff5252;
   text-align: left;
-  grid-column: span 2;
 }
 
-.footer-links {
+.form-footer {
   margin-top: 20px;
-  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.login-link {
+.form-link {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 0.8em;
   transition: all 0.3s ease;
 }
 
-.login-link:hover {
+.form-link:hover {
   color: #ff7f50;
   text-decoration: underline;
 }
@@ -143,15 +156,29 @@
 }
 
 @media (max-width: 768px) {
-  .register-content {
-    grid-template-columns: 1fr;
-  }
-  .register-type-buttons,
   .form-row {
     flex-direction: column;
+    gap: 10px;
   }
-  .register-icon {
-    width: 15vh;
-    height: 15vh;
+
+  .form-icon {
+    width: 12vh;
+    height: 12vh;
   }
+
+  .form-box {
+    padding: 20px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.auto-width {
+  width: auto;
 }
