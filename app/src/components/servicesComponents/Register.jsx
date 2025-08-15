@@ -6,7 +6,7 @@ import {
   generalApi,
 } from "../../axiosInstances/axiosInstances.js";
 
-const Register = () => {
+const Register = ({ serviceId }) => {
   const [registerType, setRegisterType] = useState("user");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

@@ -24,7 +24,7 @@ const Contact = () => {
     e.preventDefault();
 
     if (
-      !formData.complete_name ||
+      !formData.name ||
       !formData.email ||
       !formData.subject ||
       !formData.content
@@ -52,7 +52,7 @@ const Contact = () => {
           "¡Gracias por contactarnos! Responderemos a la brevedad."
         );
         setFormData({
-          complete_name: "",
+          name: "",
           email: "",
           phone: "",
           subject: "",
@@ -114,9 +114,9 @@ const Contact = () => {
                 <div className="form-row">
                   <input
                     type="text"
-                    name="complete_name"
+                    name="name"
                     placeholder="Nombre completo *"
-                    value={formData.complete_name}
+                    value={formData.name}
                     onChange={handleChange}
                     className="form-input"
                   />

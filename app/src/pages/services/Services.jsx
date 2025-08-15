@@ -8,6 +8,7 @@ const UserServices = () => {
     name: "",
     services: [],
   });
+
   const [ServiceComponent, setServiceComponent] = useState(null);
 
   useEffect(() => {
@@ -22,7 +23,10 @@ const UserServices = () => {
       const module = await import(
         `../../components/servicesComponents/${service.component}.jsx`
       );
-      setServiceComponent(() => module.default);
+
+      setServiceComponent(() => () => (
+        <module.default service_id={service.id} />
+      ));
     } catch (error) {
       console.error(
         `No se pudo cargar el componente: ${service.component}`,
