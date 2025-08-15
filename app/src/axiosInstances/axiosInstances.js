@@ -13,6 +13,7 @@ export const generalApi = axios.create({
 
 generalApi.interceptors.response.use(
   (response) => response.data,
+
   async (error) => {
     if (error.response) {
       const { status, data } = error.response;
