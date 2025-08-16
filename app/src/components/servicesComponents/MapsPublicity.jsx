@@ -1,7 +1,7 @@
 import { generalApi } from "../../axiosInstances/axiosInstances.js";
 import { useState } from "react";
 
-const PublicityScriptForm = () => {
+const PublicityScriptForm = ({ service_id }) => {
   const [formData, setFormData] = useState({
     companyName: "",
     serviceDescription: "",
@@ -28,7 +28,7 @@ const PublicityScriptForm = () => {
 
       const response = await generalApi.post(
         "/publicity/googlePublicity",
-        formData,
+        { ...formData, service_id },
         {
           headers: {
             Authorization: `Bearer ${token}`,
