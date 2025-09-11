@@ -48,14 +48,21 @@ const techs = [
 const SectionStack = () => {
   return (
     <section className="tech-section">
-      <h2>Stacks Tecnológicos</h2>
-      <div className="stack-grid">
-        {techs.map((tech, index) => (
-          <div className="stack-card" key={index}>
-            <img src={tech.logo} alt={tech.name} className="stack-logo" />
-            <p>{tech.name}</p>
-          </div>
-        ))}
+      <div className="tech-container">
+        <h2 className="tech-title">Stacks Tecnológicos</h2>
+        <p className="tech-subtitle">
+          Tecnologías que utilizamos para potenciar tu negocio
+        </p>
+        <div className="stack-grid">
+          {techs.map((tech, index) => (
+            <div className="stack-card" key={index}>
+              <div className="logo-container">
+                <img src={tech.logo} alt={tech.name} className="stack-logo" />
+              </div>
+              <p className="tech-name">{tech.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

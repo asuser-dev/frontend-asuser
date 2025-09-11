@@ -42,13 +42,26 @@ const SectionProducts = () => {
 
   return (
     <section className="products-section">
-      <h1>Así estamos marcando el 2025: creaciones y soluciones</h1>
+      <div className="products-header">
+        <h1 className="products-main-title">
+          Así estamos marcando el 2025: creaciones y soluciones
+        </h1>
+        <p className="products-subtitle">
+          Innovación tangible que impulsa negocios hacia el futuro
+        </p>
+      </div>
+
       <div className="products-container">
         {products.map((product) => (
           <article key={product.id} className="product-item">
-            <div className="product-info">
-              <h2 className="product-title">{product.title}</h2>
-              <p className="product-description">{product.description}</p>
+            <div className="product-content">
+              <div className="product-icon">
+                <span>{product.id}</span>
+              </div>
+              <div className="product-info">
+                <h2 className="product-title">{product.title}</h2>
+                <p className="product-description">{product.description}</p>
+              </div>
             </div>
           </article>
         ))}

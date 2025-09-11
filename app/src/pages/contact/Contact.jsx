@@ -71,29 +71,29 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
-      <div className="contact-box">
-        <h2 className="contact-title">Contactános</h2>
-        <p className="contact-subtitle">Estamos aquí para ayudarte</p>
+    <div className="contact-container-2">
+      <div className="contact-box-2">
+        <h2 className="contact-title-2">Contactános</h2>
+        <p className="contact-subtitle-2">Estamos aquí para ayudarte</p>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-section">
-              <h3 className="info-title">
+        <div className="contact-content-2">
+          <div className="contact-info-2">
+            <div className="info-section-2">
+              <h3 className="info-title-2">
                 <i className="fas fa-map-marker-alt"></i> Ubicación
               </h3>
               <p>Rio Ceballos, Córdoba</p>
             </div>
 
-            <div className="info-section">
-              <h3 className="info-title">
+            <div className="info-section-2">
+              <h3 className="info-title-2">
                 <i className="fas fa-envelope"></i> Email
               </h3>
               <p>asusercompany@gmail.com</p>
             </div>
 
-            <div className="info-section">
-              <h3 className="info-title">
+            <div className="info-section-2">
+              <h3 className="info-title-2">
                 <i className="fas fa-clock"></i> Horarios
               </h3>
               <p>Atención telefónica: Lunes a Viernes: 9:00 - 18:00</p>
@@ -101,24 +101,24 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="contact-form-container">
+          <div className="contact-form-container-2">
             {submitMessage ? (
-              <div className="success-message">
+              <div className="success-message-2">
                 <i className="fas fa-check-circle"></i>
                 <p>{submitMessage}</p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
-                {error && <div className="error-message">{error}</div>}
+              <form className="contact-form-2" onSubmit={handleSubmit}>
+                {error && <div className="error-message-2">{error}</div>}
 
-                <div className="form-row">
+                <div className="form-row-2">
                   <input
                     type="text"
                     name="name"
                     placeholder="Nombre completo *"
                     value={formData.name}
                     onChange={handleChange}
-                    className="form-input"
+                    className="form-input-2"
                   />
                   <input
                     type="email"
@@ -126,18 +126,18 @@ const Contact = () => {
                     placeholder="Email *"
                     value={formData.email}
                     onChange={handleChange}
-                    className="form-input"
+                    className="form-input-2"
                   />
                 </div>
 
-                <div className="form-row">
+                <div className="form-row-2">
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Teléfono (opcional)"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="form-input"
+                    className="form-input-2"
                   />
                   <input
                     type="text"
@@ -145,7 +145,7 @@ const Contact = () => {
                     placeholder="Asunto *"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="form-input"
+                    className="form-input-2"
                   />
                 </div>
 
@@ -154,13 +154,13 @@ const Contact = () => {
                   placeholder="Tu mensaje... *"
                   value={formData.content}
                   onChange={handleChange}
-                  className="form-textarea"
+                  className="form-textarea-2"
                   rows="5"
                 ></textarea>
 
                 <button
                   type="submit"
-                  className="submit-button"
+                  className="submit-button-2"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (

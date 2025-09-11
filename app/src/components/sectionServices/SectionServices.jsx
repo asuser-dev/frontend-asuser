@@ -38,9 +38,12 @@ const sliderSettings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   arrows: true,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  pauseOnHover: true,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1200,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
@@ -49,11 +52,30 @@ const sliderSettings = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 680,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        initialSlide: 1,
+        arrows: false,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
       },
     },
   ],
@@ -61,18 +83,27 @@ const sliderSettings = {
 
 const SectionServices = () => {
   return (
-    <section className="section-2">
-      <Slider {...sliderSettings}>
-        {services.map((service, index) => (
-          <div className="service-item" key={index}>
-            <div className="service-info">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <button className="btn-ver-mas">Ver más &gt;&gt;</button>
-            </div>
-          </div>
-        ))}
-      </Slider>
+    <section className="services-section">
+      <div className="services-container">
+        <h2 className="services-title">Nuestros Servicios</h2>
+        <p className="services-subtitle">
+          Soluciones tecnológicas para impulsar tu negocio
+        </p>
+
+        <div className="slider-container">
+          <Slider {...sliderSettings}>
+            {services.map((service, index) => (
+              <div className="service-item" key={index}>
+                <div className="service-info">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <button className="btn-ver-mas">Ver más &gt;&gt;</button>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
     </section>
   );
 };

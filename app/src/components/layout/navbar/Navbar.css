@@ -1,5 +1,6 @@
+/* Navbar.css - Versión Responsive Mejorada */
 .navbar {
-  width: 60%;
+  width: min(60%, 1200px);
   display: flex;
   justify-content: center;
   position: fixed;
@@ -14,6 +15,7 @@
   border-radius: 50px;
   margin: 0 auto;
   height: auto;
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -32,19 +34,23 @@
   border-radius: 50px;
   padding: 0 20px;
   background-color: transparent;
+  box-sizing: border-box;
 }
 
 .navbar-icon {
-  font-size: 24px;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  z-index: 1002;
+  flex-shrink: 0;
 }
 
 .navbar-icon a {
   text-decoration: none;
   color: #ffffff;
   font-weight: 600;
-  font-size: 1.5rem;
-  font-family: "Segoe UI", sans-serif;
+  font-size: inherit;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .navbar-icon a:hover {
@@ -54,7 +60,13 @@
 
 .navbar-buttons {
   display: flex;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.desktop-nav {
+  display: flex;
 }
 
 .nav-button {
@@ -66,10 +78,10 @@
   border-radius: 25px;
   transition: all 0.3s ease;
   font-weight: 500;
-  font-size: 0.9rem;
-  font-family: "Segoe UI", sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 0.5px;
-  margin-left: 1vh;
+  white-space: nowrap;
 }
 
 .nav-button:hover {
@@ -79,38 +91,31 @@
   transform: translateY(-2px);
 }
 
-.user-menu-wrapper {
+.user-menu-container {
   position: relative;
-  margin-left: 10px;
 }
 
 .user-icon-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: clamp(32px, 5vw, 36px);
+  height: clamp(32px, 5vw, 36px);
   border: 2px solid rgba(255, 255, 255, 0.7);
   background-color: transparent;
   color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: clamp(12px, 2.5vw, 14px);
 }
 
-.user-icon-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #ff7f50;
-  color: #ff7f50;
-  transform: translateY(-2px);
-}
-
+.user-icon-button:hover,
 .user-icon-button.active {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: #ff7f50;
   color: #ff7f50;
+  transform: translateY(-2px);
 }
 
 .user-menu-dropdown {
@@ -136,7 +141,7 @@
   border: none;
   color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -147,19 +152,133 @@
   color: #ff7f50;
 }
 
-.user-menu-container {
-  position: relative;
+/* Mobile Menu Styles */
+.mobile-menu-container {
+  display: none;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  cursor: pointer;
+  z-index: 1002;
+  padding: 5px;
+}
+
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(280px, 80vw);
+  background-color: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 80px 20px 30px;
   display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+  z-index: 1002;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.mobile-menu-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(15, 15, 15, 0.95);
 }
 
-.user-menu-buttons {
+.mobile-menu-header span {
+  color: white;
+  font-weight: 600;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.mobile-menu-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  cursor: pointer;
+  padding: 5px;
+}
+
+.mobile-menu-items {
   display: flex;
-  gap: 10px;
-  animation: fadeIn 0.2s ease-out;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  flex: 1;
 }
 
+.mobile-menu-link {
+  text-decoration: none;
+  width: 100%;
+}
+
+.mobile-nav-button {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  text-align: left;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mobile-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ff7f50;
+  color: #ff7f50;
+}
+
+.logout-button {
+  color: #ff4757;
+  border-color: rgba(255, 71, 87, 0.3);
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 71, 87, 0.1);
+  color: #ff4757;
+  border-color: #ff4757;
+}
+
+.mobile-user-menu {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -171,54 +290,179 @@
   }
 }
 
-@media (max-width: 768px) {
-  .user-menu-wrapper {
-    margin-left: 5px;
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
   }
-
-  .user-menu-buttons {
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 10px;
-  }
-
-  .user-icon-button {
-    width: 32px;
-    height: 32px;
-    font-size: 12px;
-  }
-
-  .user-menu-dropdown {
-    min-width: 140px;
-  }
-
-  .user-menu-item {
-    padding: 8px 12px;
-    font-size: 0.8rem;
+  to {
+    transform: translateX(0);
   }
 }
 
+/* Media Queries Mejoradas */
+
+/* Tablets grandes y laptops pequeñas */
+@media (max-width: 1200px) {
+  .navbar {
+    width: min(70%, 1000px);
+  }
+
+  .navbar-content {
+    padding: 0 15px;
+  }
+
+  .nav-button {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    width: min(80%, 900px);
+  }
+
+  .navbar-buttons {
+    gap: 15px;
+  }
+
+  .nav-button {
+    padding: 6px 12px;
+  }
+}
+
+/* Tablets pequeñas y móviles grandes */
 @media (max-width: 768px) {
   .navbar {
     width: calc(100% - 40px);
     left: 20px;
     right: 20px;
+    transform: none;
     padding: 8px 0;
+    border-radius: 25px;
   }
 
   .navbar-content {
-    width: 100%;
     padding: 0 15px;
   }
 
-  .navbar-buttons {
-    gap: 10px;
+  .desktop-nav {
+    display: none;
   }
 
-  .nav-button {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+  .mobile-menu-container {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu-overlay {
+    display: block;
+  }
+}
+
+/* Móviles medianos */
+@media (max-width: 480px) {
+  .navbar {
+    width: calc(100% - 30px);
+    left: 15px;
+    right: 15px;
+    padding: 6px 0;
+  }
+
+  .navbar-content {
+    padding: 0 10px;
+  }
+
+  .mobile-menu {
+    width: min(250px, 85vw);
+    padding: 70px 15px 20px;
+  }
+
+  .mobile-menu-header {
+    padding: 15px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+  .navbar {
+    width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    padding: 5px 0;
+    border-radius: 20px;
+  }
+
+  .navbar-content {
+    padding: 0 8px;
+  }
+
+  .mobile-menu {
+    width: min(100%, 90vw);
+    right: 0;
+    padding: 60px 10px 15px;
+  }
+
+  .mobile-menu-header {
+    padding: 10px;
+  }
+
+  .mobile-menu-items {
+    gap: 12px;
+  }
+
+  .mobile-nav-button {
+    padding: 10px 12px;
+  }
+}
+
+/* Media query para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .navbar {
+    padding: 5px 0;
+  }
+
+  .mobile-menu {
+    width: min(300px, 50vw);
+    padding: 50px 15px 20px;
+  }
+
+  .mobile-menu-header {
+    padding: 10px 15px;
+  }
+}
+
+/* Asegurar que el contenido no se deforme en pantallas muy anchas */
+@media (min-width: 1400px) {
+  .navbar {
+    width: min(50%, 1200px);
+  }
+}
+
+/* Fix para prevenir overflow horizontal */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .nav-button,
+  .user-icon-button,
+  .mobile-nav-button {
+    transition: none;
+  }
+
+  .user-menu-dropdown,
+  .mobile-menu {
+    animation: none;
   }
 }

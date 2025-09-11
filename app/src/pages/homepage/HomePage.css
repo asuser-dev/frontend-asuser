@@ -1,12 +1,15 @@
+/* HomePage.css */
 .homepage-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  overflow-x: hidden;
 }
 
-.section-1 {
+/* Hero Section */
+.hero-section {
   background-image: radial-gradient(
     circle at 50% 50%,
     rgba(255, 127, 80, 0.1) 0%,
@@ -16,112 +19,110 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.section-1 h1,
-.section-1 h2 {
+.hero-content {
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.hero-section h1,
+.hero-section h2 {
   margin: 10px 0;
   transition: all 0.3s ease;
 }
 
-.section-1 h1 {
+.hero-section h1 {
   font-size: 4rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
 }
 
-.section-1 h2 {
+.hero-section h2 {
   font-size: 1.5rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-  max-width: 600px;
+  max-width: 800px;
+  line-height: 1.6;
 }
 
-.section-1 h1:hover,
-.section-1 h2:hover {
+.hero-section h1:hover,
+.hero-section h2:hover {
   color: #f4a261;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
-.section-2 {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  width: 100%;
-  padding: 40px 20px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 100%;
-  max-width: 600px;
-}
-
-.product-card {
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  background-color: white;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-.section-3 {
-  background-color: transparent;
-  text-align: center;
-  padding: 30px;
-  color: white;
-  width: 100%;
-}
-
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  max-width: 600px;
-  margin: 20px auto;
-}
-
-.stack-card {
-  color: black;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.stack-card:hover {
-  transform: scale(1.1);
-  background: #f4a261;
-  color: white;
-}
-
-@media (max-width: 600px) {
-  .stack-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Responsive Design */
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero-section h1 {
+    font-size: 3.5rem;
   }
 
-  .section-1 h1 {
+  .hero-section h2 {
+    font-size: 1.4rem;
+    max-width: 700px;
+  }
+}
+
+/* Large Mobile Devices */
+@media (max-width: 768px) {
+  .hero-section h1 {
     font-size: 3rem;
   }
 
-  .section-1 h2 {
-    font-size: 1.2rem;
+  .hero-section h2 {
+    font-size: 1.3rem;
+    max-width: 600px;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 90vh;
+    padding: 15px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-section h2 {
+    font-size: 1.1rem;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .hero-content {
+    padding: 10px;
+  }
+}
+
+/* Very Small Devices */
+@media (max-width: 360px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section h2 {
+    font-size: 1rem;
+  }
+}
+
+/* Orientation Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 120vh;
+    padding-top: 40px;
   }
 }
