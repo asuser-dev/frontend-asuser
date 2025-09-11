@@ -1,4 +1,3 @@
-/* Footer.css - Versión Responsive Mejorada */
 footer {
   margin-top: clamp(60px, 10vmax, 120px);
   padding: clamp(20px, 2vmax, 40px);
@@ -15,7 +14,6 @@ footer {
   min-height: 200px;
 }
 
-/* Sección izquierda - Newsletter */
 .leftFooter {
   width: 100%;
   max-width: 300px;
@@ -93,7 +91,6 @@ footer {
   box-shadow: 0 4px 12px rgba(235, 64, 52, 0.3);
 }
 
-/* Sección central - Logo y descripción */
 .midFooter {
   flex: 2;
   text-align: center;
@@ -124,7 +121,6 @@ footer {
   margin: 0;
 }
 
-/* Sección derecha - Enlaces */
 .rightFooter {
   width: 100%;
   max-width: 200px;
@@ -170,9 +166,6 @@ footer {
   padding-right: 10px;
 }
 
-/* Media Queries Mejoradas */
-
-/* Laptops y tablets grandes */
 @media (max-width: 1024px) {
   footer {
     padding: clamp(25px, 3vw, 35px);
@@ -184,7 +177,6 @@ footer {
   }
 }
 
-/* Tablets */
 @media (max-width: 768px) {
   footer {
     flex-direction: column;
@@ -233,7 +225,6 @@ footer {
   }
 }
 
-/* Móviles grandes */
 @media (max-width: 600px) {
   footer {
     gap: 35px;
@@ -249,7 +240,6 @@ footer {
   }
 }
 
-/* Móviles medianos */
 @media (max-width: 480px) {
   footer {
     gap: 30px;
@@ -283,7 +273,6 @@ footer {
   }
 }
 
-/* Móviles pequeños */
 @media (max-width: 360px) {
   footer {
     gap: 25px;
@@ -315,7 +304,6 @@ footer {
   }
 }
 
-/* Orientación landscape en móviles */
 @media (max-width: 768px) and (orientation: landscape) {
   footer {
     flex-direction: row;
@@ -355,7 +343,6 @@ footer {
   }
 }
 
-/* Pantallas muy grandes */
 @media (min-width: 1400px) {
   footer {
     max-width: 1200px;
@@ -364,7 +351,6 @@ footer {
   }
 }
 
-/* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .subscribe-container button,
   .rightFooter ul li {
@@ -377,19 +363,16 @@ footer {
   }
 }
 
-/* Fix para prevenir overflow */
 * {
   box-sizing: border-box;
 }
 
-/* Estados de focus para accesibilidad */
 .subscribe-container button:focus,
 .rightFooter ul li:focus {
   outline: 2px solid #ff5734;
   outline-offset: 2px;
 }
 
-/* Mejora la legibilidad en pantallas pequeñas */
 @media (max-width: 480px) {
   .leftFooter > p,
   .midFooter > p {

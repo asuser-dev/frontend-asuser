@@ -1,4 +1,3 @@
-/* SectionServices.css */
 .services-section {
   width: 100%;
   padding: 80px 20px;
@@ -110,7 +109,6 @@
   transform: translateX(5px);
 }
 
-/* Slick slider custom styles */
 .slick-slider {
   width: 100%;
 }
@@ -166,8 +164,6 @@
   opacity: 1;
 }
 
-/* Responsive Design */
-/* Tablets */
 @media (max-width: 1200px) {
   .services-section {
     padding: 70px 20px;
@@ -200,7 +196,6 @@
   }
 }
 
-/* Medium Tablets */
 @media (max-width: 900px) {
   .services-section {
     padding: 60px 15px;
@@ -241,7 +236,6 @@
   }
 }
 
-/* Large Mobile Devices */
 @media (max-width: 680px) {
   .services-section {
     padding: 50px 15px;
@@ -282,7 +276,6 @@
   }
 }
 
-/* Small Mobile Devices */
 @media (max-width: 480px) {
   .services-section {
     padding: 40px 10px;
@@ -323,7 +316,6 @@
   }
 }
 
-/* Very Small Devices */
 @media (max-width: 360px) {
   .services-title {
     font-size: 1.5rem;
@@ -342,7 +334,6 @@
   }
 }
 
-/* Orientation Adjustments */
 @media (max-height: 500px) and (orientation: landscape) {
   .service-item {
     min-height: 380px;
