@@ -1,4 +1,3 @@
-/* Navbar.css - Versión Responsive Mejorada */
 .navbar {
   width: min(60%, 1200px);
   display: flex;
@@ -152,7 +151,6 @@
   color: #ff7f50;
 }
 
-/* Mobile Menu Styles */
 .mobile-menu-container {
   display: none;
 }
@@ -278,7 +276,6 @@
   gap: 15px;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -299,9 +296,6 @@
   }
 }
 
-/* Media Queries Mejoradas */
-
-/* Tablets grandes y laptops pequeñas */
 @media (max-width: 1200px) {
   .navbar {
     width: min(70%, 1000px);
@@ -317,7 +311,6 @@
   }
 }
 
-/* Tablets */
 @media (max-width: 1024px) {
   .navbar {
     width: min(80%, 900px);
@@ -332,7 +325,6 @@
   }
 }
 
-/* Tablets pequeñas y móviles grandes */
 @media (max-width: 768px) {
   .navbar {
     width: calc(100% - 40px);
@@ -364,7 +356,6 @@
   }
 }
 
-/* Móviles medianos */
 @media (max-width: 480px) {
   .navbar {
     width: calc(100% - 30px);
@@ -387,7 +378,6 @@
   }
 }
 
-/* Móviles muy pequeños */
 @media (max-width: 360px) {
   .navbar {
     width: calc(100% - 20px);
@@ -420,7 +410,6 @@
   }
 }
 
-/* Media query para orientación landscape en móviles */
 @media (max-width: 768px) and (orientation: landscape) {
   .navbar {
     padding: 5px 0;
@@ -436,14 +425,12 @@
   }
 }
 
-/* Asegurar que el contenido no se deforme en pantallas muy anchas */
 @media (min-width: 1400px) {
   .navbar {
     width: min(50%, 1200px);
   }
 }
 
-/* Fix para prevenir overflow horizontal */
 * {
   box-sizing: border-box;
 }
@@ -452,7 +439,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .navbar,
   .nav-button,
