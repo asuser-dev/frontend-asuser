@@ -6,9 +6,11 @@ import "./HomePage.css";
 const HomePage = () => {
   return (
     <div className="homepage-container">
-      <section className="section-1">
-        <h1>asuser</h1>
-        <h2>Potenciamos negocios con innovación tecnológica</h2>
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1>asuser</h1>
+          <h2>Potenciamos negocios con innovación tecnológica</h2>
+        </div>
       </section>
 
       <SectionServices></SectionServices>
